@@ -19,10 +19,10 @@ const getFeedbackById = (req, res) => {
 const updateFeedback = (req, res) => {
     const feedbackId= req.params.feedbackId;
     //console.log(feedbackId);
-    //const { sender, message, rating } = req.body;
+    const { sender, message, rating } = req.body;
     
     const updatedFeedback = Feedback.updateOneById(feedbackId, {sender, message, rating});
-    console.log(updatedFeedback);
+    //console.log(updatedFeedback);
     
     updatedFeedback? res.json(updatedFeedback) :  res.status(404).json({message : "Feedback not found!!"});
 };
